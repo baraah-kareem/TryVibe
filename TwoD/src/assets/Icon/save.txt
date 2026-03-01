@@ -1,0 +1,155 @@
+import React, { useState, useEffect } from "react";
+import coatIcon from "../assets/Icon/trench-coat.png";
+import vestIcon from "../assets/Icon/waistcoat.png";
+import jacketIcon from "../assets/Icon/jacket.png";
+import trousersIcon from "../assets/Icon/jeans.png";
+import shirtIcon from "../assets/Icon/tshirt2.png";
+import tieIcon from "../assets/Icon/tie.png";
+
+import color1 from "../assets/images/1.png";
+import color2 from "../assets/images/2.jpg";
+import color3 from "../assets/images/3.jpg";
+import color4 from "../assets/images/4.jpg";
+import color5 from "../assets/images/5.jpg";
+
+const PRODUCT_TYPE_CATEGORY = {
+  Coat: "coat",
+  Vest: "vest",
+  Jackets: "jacket",
+  Pants: "trouser",
+  Shirt: "shirt",
+  Tie: "accessory",
+};
+
+// Map categories to your own images
+const ICONS_MAP = {
+  coat: coatIcon,
+  vest: vestIcon,
+  jacket: jacketIcon,
+  trouser: trousersIcon,
+  shirt: shirtIcon,
+  accessory: tieIcon,
+};
+
+// Define colors + images
+const COLORS = [
+  { name: "Black", value: "#000000", image: color1 },
+  { name: "White", value: "#ffffff", image: color2 },
+  { name: "Red", value: "#ef4444", image: color3 },
+  { name: "Blue", value: "#3b82f6", image: color4 },
+  { name: "Green", value: "#22c55e", image: color5 },
+];
+
+function Fabric() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+
+  useEffect(() => {
+    setSelectedColor(null);
+  }, [selectedCategory]);
+
+  return (
+    <div className="overflow-x-auto p-4 relative">
+      <h1 className="text-2xl font-bold text-[#1a65a8] mb-4">Fabric Fit</h1>
+
+      <div className="flex gap-10">
+        {/* Left side: Categories + Colors */}
+        <div className="flex gap-6">
+          {/* Categories */}
+          <div className="flex flex-col gap-5 w-56">
+            {Object.entries(PRODUCT_TYPE_CATEGORY).map(([name, category]) => (
+              <button
+                key={name}
+                onClick={() => setSelectedCategory(category)}
+                className={`flex items-center gap-4 p-4 border rounded-xl 
+                  hover:bg-gray-100 transition ${
+                    selectedCategory === category
+                      ? "bg-blue-100 border-blue-400"
+                      : ""
+                  }`}
+              >
+                <img
+                  src={ICONS_MAP[category]}
+                  alt={name}
+                  className="w-12 h-12 object-cover"
+                />
+                <span className="text-base font-medium">{name}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Colors */}
+          {selectedCategory && (
+            <div className="flex flex-col gap-4 w-36 pt-2">
+              <span className="text-sm font-semibold text-gray-600">
+                Colors
+              </span>
+
+              <div className="flex flex-col gap-3">
+                {COLORS.map((color) => (
+                  <button
+                    key={color.name}
+                    onClick={() => setSelectedColor(color.image)}
+                    className={`p-1 rounded-lg border transition ${
+                      selectedColor === color.image
+                        ? "border-blue-500 scale-105"
+                        : "border-gray-200"
+                    }`}
+                  >
+                    <img
+                      src={color.image}
+                      alt={color.name}
+                      className="w-12 h-12 object-cover rounded-md"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+      {/* Main display */}
+<div className="flex-1 flex justify-center items-start pt-6" >
+  {selectedCategory ? (
+    <div className="flex flex-col items-center">
+ 
+  {ICONS_MAP[selectedCategory] && (
+   <div
+  className="w-[300px] h-[400px]"
+  style={{
+    backgroundImage: `url(${selectedColor})`, // اللون أو الصورة
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+
+    WebkitMaskImage: `url(${ICONS_MAP[selectedCategory]})`,
+    WebkitMaskRepeat: "no-repeat",
+    WebkitMaskSize: "contain",
+    WebkitMaskPosition: "center",
+    WebkitMaskComposite: "destination-in", // هذا يخلي الخلفية تظهر داخل الشكل فقط
+
+    maskImage: `url(${ICONS_MAP[selectedCategory]})`,
+    maskRepeat: "no-repeat",
+    maskSize: "contain",
+    maskPosition: "center",
+    maskComposite: "intersect", // لبعض المتصفحات
+  }}
+
+/>
+
+  )}
+
+      <span className="mt-4 text-lg font-semibold">
+        {selectedCategory}
+      </span>
+    </div>
+  ) : (
+    <span className="text-gray-500 text-lg">Choose Product</span>
+  )}
+</div>
+
+      </div>
+    </div>
+  );
+}
+
+export default Fabric;

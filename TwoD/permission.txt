@@ -1,0 +1,36 @@
+USERS_VIEW_ALL	View All Users
+USERS_SEARCH	Search Users
+USERS_VIEW_DETAIL	View User Details
+USERS_VIEW_BY_USERNAME	View User by Username
+USERS_VIEW_AVAILABLE_GROUPS	View Available Groups for User
+USERS_CREATE	Create New User
+USERS_UPDATE	Update User
+USERS_DELETE	Delete User
+USERS_ASSIGN_GROUP	Assign User to Group
+USERS_REMOVE_GROUP	Remove User from Group
+PRODUCTION_LINES_VIEW_ALL	View All Production Lines
+PRODUCTION_EFFICIENCY_VIEW_ALL	View All Efficiency Details
+PRODUCTION_EFFICIENCY_CREATE	Create Efficiency Calculation
+PRODUCTION_EFFICIENCY_UPDATE	Update Efficiency Calculation
+PRODUCTION_EFFICIENCY_DELETE	Delete Efficiency Calculation
+PRODUCTION_EFFICIENCY_VIEW_SUMMARY	View Efficiency Summary
+PRODUCTION_EFFICIENCY_VIEW_BY_LINE	View Efficiency by Line
+GROUPS_VIEW_ALL	View All Groups
+GROUPS_VIEW_ACTIVE	View Active Groups
+GROUPS_VIEW_DETAIL	View Group Details
+GROUPS_CREATE	Create New Group
+GROUPS_UPDATE	Update Group
+GROUPS_DELETE	Delete Group
+FUNCTIONS_VIEW_ALL	View All Functions
+FUNCTIONS_CREATE	Create New Function
+GROUP_FUNCTIONS_VIEW	View Group Functions
+GROUP_AVAILABLE_FUNCTIONS_VIEW	View Available Functions for Group
+FUNCTION_GROUPS_VIEW	View Groups by Function
+GROUP_FUNCTION_ASSIGN	Assign Function to Group
+GROUP_FUNCTION_BATCH_ASSIGN	Batch Assign Functions to Group
+GROUP_FUNCTION_REMOVE	Remove Function from Group
+PRODUCTION_LINES_VIEW_ALL	View All Production Lines
+PRODUCTION_LINES_VIEW_DETAIL	View Production Line Details
+PRODUCTION_LINES_CREATE	Create Production Line
+PRODUCTION_LINES_UPDATE	Update Production Line
+PRODUCTION_LINES_DELETE	Delete Production Line
